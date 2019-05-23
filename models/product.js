@@ -24,6 +24,15 @@ module.exports = function(sequelize, DataTypes){
                 isInt: true,
                 min: 0
             }
-        }, 
+        },
+        product_url:{
+            type: DataTypes.STRING,
+            allowNotNull: true,
+            defaultValue: 'https://via.placeholder.com/150',
+            validate:{
+                isUrl: true,
+            }
+        } 
     })
+    return Product;
 }
