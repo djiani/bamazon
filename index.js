@@ -5,10 +5,15 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const db = require('./models');
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.get("/", function (req, res) {
-    res.json({ message: 'Welcome to bamazon app' });
-});
+// Static directory to be served
+app.use(express.static("./public"));
+
+const html_routes = require("./routes/html_routes.js");
+html_routes(app);
+
 
     // const rawData = [
     // {
