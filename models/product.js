@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes){
             }
         }, 
         stock_quantity:{
-            type: DataTypes.INTERGER,
+            type: DataTypes.INTEGER,
             allowNotNull: false,
             defaultValue: 0,
             validate:{
