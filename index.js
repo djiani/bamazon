@@ -13,6 +13,8 @@ app.use(express.static("./public"));
 
 const html_routes = require("./routes/html_routes.js");
 html_routes(app);
+const api_routes = require("./routes/api-routes");
+api_routes(app);
 
 
     // const rawData = [

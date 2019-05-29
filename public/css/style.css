@@ -1,8 +1,58 @@
-#shopCarousel, .headerBlck{
+
+#shopCarousel{
     background-color: #ccc;
 }
 
 .carousel-img{
     width: 100%;
     height: auto;
+}
+
+.card_prod{
+    height: 300px;
+    width: 20%;
+    margin: 5px;
+    padding: 1px;
+    display: inline-flex;
+
+}
+.img_prod{
+    width: 80%;
+    height: 50%;
+    margin:0 auto;
+}
+.card-title{
+    height: 30px;
+    overflow:unset;
+    font-size: 0.8em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+#ListProducts{
+    text-align: center;
+    border:1px solid red;
+    margin:0 auto;
+}
+
+
+
+@media screen and (max-width:  992px){
+    .card_prod{
+       width:30%;
+    }
+}
+@media screen and (max-width: 768px){
+    .card_prod{
+        width:45%;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .card_prod{
+        width:90%;
+    }
+    .img_prod{
+        width: 60%;
+        margin:0 auto;
+    }
 }
