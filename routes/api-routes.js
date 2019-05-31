@@ -1,5 +1,6 @@
 // Requiring our models
 var db = require("../models");
+const op = db.Sequelize.Op;
 
 // Routes
 // =============================================================
@@ -27,5 +28,47 @@ module.exports = function(app) {
     });
   });
   
+  app.post("/search", function(req, res){
+    console.log(req.body);
+    if(req.body.search){
+      console.log('i am on search');
+      if(req.body.category == "All"){
+        db.Product.findAll({
+          where: {product_name:{[op.like]:  "%"+req.body.search+"%"} } 
+        }).then(function(data){
+          console.log("data_all" + data)
+              res.json(data);
+            });
+      }else{
+        db.Product.findAll({
+          where: {
+            product_name:{[op.like]:  "%"+req.body.search+"%"},
+            department_name: req.body.category
+          }
+        }).then(function(data){
+          console.log("data" + data)
+              res.json(data);
+            });
+      }
+    }else{
+      if(req.body.category == "All"){
+        db.Product.findAll({}).then(function(data){
+          console.log("data_all" + data)
+              res.json(data);
+            });
+      }else{
+        db.Product.findAll({
+          where: {
+            department_name: req.body.category
+          }
+        }).then(function(data){
+          console.log("data" + data)
+              res.json(data);
+            });
+      }
+    }
+
+    
+  })
 
 }
