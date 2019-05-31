@@ -46,7 +46,8 @@ const products = [
 ]
 
 db.sequelize.sync().then(function() {
-    db.Product.bulkCreate(products).then(function(rows){
+    db.Product.bulkCreate(products)
+    .then(function(rows){
         console.log("Seeded")
     }).catch(function(err) {
         console.log("Error", err)
